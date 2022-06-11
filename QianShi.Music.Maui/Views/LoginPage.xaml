@@ -4,11 +4,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:QianShi.Music.Maui.ViewModels"
-    Title="LoginPage"
+    Title="千矢"
     x:DataType="viewmodels:LoginPageViewModel">
-    <StackLayout>
-        <Entry Text="{Binding Account}" />
-        <Entry IsPassword="True" Text="{Binding Password}" />
-        <Button Command="{Binding LoginCommand}" Text="登录" />
+    <StackLayout Padding="20" >
+        <Entry Placeholder="请输入账号"  Text="{Binding Account}" />
+        <Entry IsPassword="True" Placeholder="请输入密码" Text="{Binding Password}"  Margin="0,20"  />
+        <Button Command="{Binding LoginCommand}" Text="Login" />
     </StackLayout>
 </ContentPage>

@@ -4,13 +4,29 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:QianShi.Music.Maui"
-    xmlns:views="clr-namespace:QianShi.Music.Maui.Views"
-    Shell.FlyoutBehavior="Disabled">
-    <ShellContent
-        Title="Home"
+    xmlns:viewmdoels="clr-namespace:QianShi.Music.Maui.ViewModels"
+    Shell.TabBarIsVisible="True" 
+    x:DataType="viewmdoels:AppShellViewModel"
+    xmlns:views="clr-namespace:QianShi.Music.Maui.Views">
+    <ShellContent Shell.FlyoutBehavior="Disabled" Shell.TabBarIsVisible="False"
+        Title="Home" FlyoutItemIsVisible="False"
         ContentTemplate="{DataTemplate views:LoginPage}"
         Route="LoginPage" />
-    <FlyoutItem Route="MainPage">
-        <ShellContent Title="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+
+    <FlyoutItem Route="MainPage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="发现" Route="MainPage" ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Title="播客" Route="MainPage1" ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Title="我的" Route="MainPage2" ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Title="关注" Route="MainPage3" ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Title="云村" Route="MainPage4" ContentTemplate="{DataTemplate views:HomePage}" />
     </FlyoutItem>
+
+    <ShellContent Shell.TabBarIsVisible="False" Title="MainPage1" ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent Shell.TabBarIsVisible="False" Title="MainPage2" ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent Shell.TabBarIsVisible="False" Title="MainPage3" ContentTemplate="{DataTemplate local:MainPage}" />
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Sing Out" Command="{Binding SingOutCommand}" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
 </Shell>

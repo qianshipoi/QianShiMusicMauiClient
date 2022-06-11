@@ -28,6 +28,10 @@ public static class MauiProgram
         builder.Services.AddTransient<MainPageViewModel>();
         builder.Services.AddTransient<LoginPageViewModel>();
         builder.Services.AddTransient<LoginPage>();
+        builder.Services.AddTransient<AppShell>();
+        builder.Services.AddTransient<AppShellViewModel>();
+        builder.Services.AddTransient<HomePageViewModel>();
+        builder.Services.AddTransient<HomePage>();
 
         return builder.Build();
     }
