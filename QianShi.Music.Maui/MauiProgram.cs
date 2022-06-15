@@ -6,6 +6,7 @@ using Microsoft.Maui.LifecycleEvents;
 
 using QianShi.Music.Maui.ViewModels;
 using QianShi.Music.Maui.Views;
+using QianShi.Music.Maui.Views.Dashboard;
 
 namespace QianShi.Music.Maui;
 
@@ -24,14 +25,14 @@ public static class MauiProgram
             })
             .UseMauiCommunityToolkit();
 
-        builder.Services.AddTransient<MainPage>();
-        builder.Services.AddTransient<MainPageViewModel>();
-        builder.Services.AddTransient<LoginPageViewModel>();
-        builder.Services.AddTransient<LoginPage>();
-        builder.Services.AddTransient<AppShell>();
-        builder.Services.AddTransient<AppShellViewModel>();
-        builder.Services.AddTransient<HomePageViewModel>();
-        builder.Services.AddTransient<HomePage>();
+        builder.Services.AddSingleton<LoginPage>();
+        builder.Services.AddSingleton<LoginPageViewModel>();
+
+        builder.Services.AddSingleton<DashboardPage>();
+        builder.Services.AddSingleton<DashboardPageViewModel>();
+
+        builder.Services.AddSingleton<LoadingPage>();
+        builder.Services.AddSingleton<LoadingPageViewModel>();
 
         return builder.Build();
     }

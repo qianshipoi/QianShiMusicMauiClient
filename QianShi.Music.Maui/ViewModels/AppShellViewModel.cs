@@ -11,15 +11,10 @@ namespace QianShi.Music.Maui.ViewModels
 {
     public partial class AppShellViewModel : BaseViewModel
     {
-        public AppShellViewModel()
-        {
-
-        }
-
-
         [RelayCommand]
         async Task SingOut()
         {
+            Preferences.Remove(nameof(App.UserDetails));
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }

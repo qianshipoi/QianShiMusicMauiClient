@@ -1,11 +1,16 @@
-﻿namespace QianShi.Music.Maui;
+﻿using QianShi.Music.Maui.Models;
+using QianShi.Music.Maui.Views;
+using QianShi.Music.Maui.Views.Dashboard;
+
+namespace QianShi.Music.Maui;
 
 public partial class App : Application
 {
-	public App(AppShell appShell)
+	public static UserBasicInfo UserDetails;
+
+	public App()
 	{
 		InitializeComponent();
-
-		MainPage = appShell;
-	}
+		MainPage = new AppShell();
+    }
 }

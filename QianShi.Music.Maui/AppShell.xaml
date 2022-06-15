@@ -3,30 +3,33 @@
     x:Class="QianShi.Music.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dashboard="clr-namespace:QianShi.Music.Maui.Views.Dashboard"
     xmlns:local="clr-namespace:QianShi.Music.Maui"
     xmlns:viewmdoels="clr-namespace:QianShi.Music.Maui.ViewModels"
-    Shell.TabBarIsVisible="True" 
+    xmlns:views="clr-namespace:QianShi.Music.Maui.Views"
     x:DataType="viewmdoels:AppShellViewModel"
-    xmlns:views="clr-namespace:QianShi.Music.Maui.Views">
-    <ShellContent Shell.FlyoutBehavior="Disabled" Shell.TabBarIsVisible="False"
-        Title="Home" FlyoutItemIsVisible="False"
+    Shell.TabBarIsVisible="False">
+
+    <!--<ShellContent
+        Title="Loading"
+        ContentTemplate="{DataTemplate views:LoadingPage}"
+        Route="LoadingPage" />-->
+
+    <ShellContent
+        Title="Login"
         ContentTemplate="{DataTemplate views:LoginPage}"
-        Route="LoginPage" />
+        Route="LoginPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False" />
 
-    <FlyoutItem Route="MainPage" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="发现" Route="MainPage" ContentTemplate="{DataTemplate views:HomePage}" />
-        <ShellContent Title="播客" Route="MainPage1" ContentTemplate="{DataTemplate views:HomePage}" />
-        <ShellContent Title="我的" Route="MainPage2" ContentTemplate="{DataTemplate views:HomePage}" />
-        <ShellContent Title="关注" Route="MainPage3" ContentTemplate="{DataTemplate views:HomePage}" />
-        <ShellContent Title="云村" Route="MainPage4" ContentTemplate="{DataTemplate views:HomePage}" />
-    </FlyoutItem>
+    <ShellContent
+        Title="Dashboard"
+        ContentTemplate="{DataTemplate dashboard:DashboardPage}"
+        Route="DashboardPage" />
 
-    <ShellContent Shell.TabBarIsVisible="False" Title="MainPage1" ContentTemplate="{DataTemplate local:MainPage}" />
-    <ShellContent Shell.TabBarIsVisible="False" Title="MainPage2" ContentTemplate="{DataTemplate local:MainPage}" />
-    <ShellContent Shell.TabBarIsVisible="False" Title="MainPage3" ContentTemplate="{DataTemplate local:MainPage}" />
     <Shell.FlyoutFooter>
         <StackLayout Padding="20">
-            <Button Text="Sing Out" Command="{Binding SingOutCommand}" />
+            <Button Command="{Binding SingOutCommand}" Text="Sing Out" />
         </StackLayout>
     </Shell.FlyoutFooter>
 </Shell>

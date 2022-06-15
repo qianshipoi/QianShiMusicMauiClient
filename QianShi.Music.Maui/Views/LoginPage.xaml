@@ -6,9 +6,13 @@
     xmlns:viewmodels="clr-namespace:QianShi.Music.Maui.ViewModels"
     Title="千矢"
     x:DataType="viewmodels:LoginPageViewModel">
-    <StackLayout Padding="20" >
-        <Entry Placeholder="请输入账号"  Text="{Binding Account}" />
-        <Entry IsPassword="True" Placeholder="请输入密码" Text="{Binding Password}"  Margin="0,20"  />
+    <StackLayout Padding="20">
+        <Entry Placeholder="请输入账号" Text="{Binding Account}" />
+        <Entry
+            Margin="0,20"
+            IsPassword="True"
+            Placeholder="请输入密码"
+            Text="{Binding Password}" />
         <Button Command="{Binding LoginCommand}" Text="Login" />
     </StackLayout>
 </ContentPage>
