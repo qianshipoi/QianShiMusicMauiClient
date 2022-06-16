@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QianShi.Music.Maui.ViewModels
+namespace QianShi.Music.Maui.ViewModels.Dashboard
 {
     public partial class DashboardPageViewModel : BaseViewModel
     {

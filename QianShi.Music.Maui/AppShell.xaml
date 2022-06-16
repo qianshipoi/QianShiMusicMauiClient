@@ -8,13 +8,15 @@
     xmlns:viewmdoels="clr-namespace:QianShi.Music.Maui.ViewModels"
     xmlns:views="clr-namespace:QianShi.Music.Maui.Views"
     x:DataType="viewmdoels:AppShellViewModel"
+    Shell.FlyoutBehavior="Flyout"
     Shell.TabBarIsVisible="False">
 
     <ShellContent
         ContentTemplate="{DataTemplate views:LoadingPage}"
         FlyoutItemIsVisible="False"
         Route="LoadingPage"
-        Shell.FlyoutBehavior="Disabled" />
+        Shell.FlyoutBehavior="Disabled"
+        Shell.TabBarIsVisible="False" />
 
     <ShellContent
         Title="Login"
@@ -23,10 +25,30 @@
         Route="LoginPage"
         Shell.FlyoutBehavior="Disabled" />
 
-    <ShellContent
-        Title="Dashboard"
-        ContentTemplate="{DataTemplate dashboard:DashboardPage}"
-        Route="DashboardPage" />
+    <TabBar Route="Dashboard">
+        <ShellContent
+            Title="发现"
+            ContentTemplate="{DataTemplate dashboard:DashboardPage}"
+            Route="DashboardPage"
+            Shell.TabBarIsVisible="True" />
+
+        <ShellContent
+            Title="首页"
+            ContentTemplate="{DataTemplate dashboard:HomePage}"
+            Route="HomePage"
+            Shell.TabBarIsVisible="True" />
+
+        <ShellContent
+            Title="我的"
+            ContentTemplate="{DataTemplate dashboard:MyPage}"
+            Route="MyPage"
+            Shell.TabBarIsVisible="True" />
+    </TabBar>
+
+    <MenuItem
+        Command="{Binding MenuClickCommand}"
+        CommandParameter="AboutPage"
+        Text="About" />
 
     <Shell.FlyoutFooter>
         <StackLayout Padding="20">

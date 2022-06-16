@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="QianShi.Music.Maui.Views.AboutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="AboutPage"
+    Shell.PresentationMode="ModalAnimated">
+    <StackLayout>
+        <Label
+            HorizontalOptions="Center"
+            Text="About Page"
+            VerticalOptions="Center" />
+        <Button Command="{Binding GoBackCommand}" Text="Go Back" />
+    </StackLayout>
+</ContentPage>

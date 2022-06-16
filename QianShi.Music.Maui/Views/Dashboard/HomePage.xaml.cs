@@ -2,9 +2,9 @@ using QianShi.Music.Maui.ViewModels.Dashboard;
 
 namespace QianShi.Music.Maui.Views.Dashboard;
 
-public partial class DashboardPage : ContentPage
+public partial class HomePage : ContentPage
 {
-	public DashboardPage(DashboardPageViewModel viewModel)
+	public HomePage(HomePageViewModel viewModel)
 	{
 		InitializeComponent();
 		this.BindingContext = viewModel;

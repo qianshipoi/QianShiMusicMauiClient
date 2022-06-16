@@ -1,4 +1,5 @@
 ﻿using QianShi.Music.Maui.ViewModels;
+using QianShi.Music.Maui.Views;
 
 namespace QianShi.Music.Maui;
 

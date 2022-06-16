@@ -3,7 +3,7 @@ using QianShi.Music.Maui.ViewModels.Base;
 
 using System.Collections.ObjectModel;
 
-namespace QianShi.Music.Maui.ViewModels
+namespace QianShi.Music.Maui.ViewModels.Dashboard
 {
     public partial class HomePageViewModel : BaseViewModel
     {
@@ -13,8 +13,8 @@ namespace QianShi.Music.Maui.ViewModels
         {
             Values.Add(new Carousel
             {
-                 Name ="aqua",
-                 Path= "https://oss.kuriyama.top/static/akua.png"
+                Name = "aqua",
+                Path = "https://oss.kuriyama.top/static/akua.png"
             });
 
             Values.Add(new Carousel

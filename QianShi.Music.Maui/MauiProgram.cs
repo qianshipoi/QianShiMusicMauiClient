@@ -1,10 +1,7 @@
-﻿#define WINDOWS
-
-using CommunityToolkit.Maui;
-
-using Microsoft.Maui.LifecycleEvents;
+﻿using CommunityToolkit.Maui;
 
 using QianShi.Music.Maui.ViewModels;
+using QianShi.Music.Maui.ViewModels.Dashboard;
 using QianShi.Music.Maui.Views;
 using QianShi.Music.Maui.Views.Dashboard;
 
@@ -33,6 +30,15 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<LoadingPage>();
         builder.Services.AddSingleton<LoadingPageViewModel>();
+
+        builder.Services.AddSingleton<AboutPage>();
+        builder.Services.AddSingleton<AboutPageViewModel>();
+
+        builder.Services.AddSingleton<HomePage>();
+        builder.Services.AddSingleton<HomePageViewModel>();
+
+        builder.Services.AddSingleton<MyPage>();
+        builder.Services.AddSingleton<MyPageViewMdoel>();
 
         return builder.Build();
     }
