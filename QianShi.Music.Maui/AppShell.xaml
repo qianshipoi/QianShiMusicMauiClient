@@ -10,17 +10,18 @@
     x:DataType="viewmdoels:AppShellViewModel"
     Shell.TabBarIsVisible="False">
 
-    <!--<ShellContent
-        Title="Loading"
+    <ShellContent
         ContentTemplate="{DataTemplate views:LoadingPage}"
-        Route="LoadingPage" />-->
+        FlyoutItemIsVisible="False"
+        Route="LoadingPage"
+        Shell.FlyoutBehavior="Disabled" />
 
     <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate views:LoginPage}"
+        FlyoutItemIsVisible="False"
         Route="LoginPage"
-        Shell.FlyoutBehavior="Disabled"
-        Shell.FlyoutItemIsVisible="False" />
+        Shell.FlyoutBehavior="Disabled" />
 
     <ShellContent
         Title="Dashboard"

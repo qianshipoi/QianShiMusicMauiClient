@@ -11,23 +11,28 @@ namespace QianShi.Music.Maui.ViewModels
     {
         public LoadingPageViewModel()
         {
-            _ = CheckUserLoginDetails();
+            Check();
         }
 
-        private async Task CheckUserLoginDetails()
+        void Check()
         {
             var userDetailStr = Preferences.Get(nameof(App.UserDetails), string.Empty);
             if (string.IsNullOrWhiteSpace(userDetailStr))
             {
-                var items = AppShell.Current.Items;
-                await AppShell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                App.Current.Dispatcher.Dispatch(async () =>
+                {
+                    await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                });
             }
             else
             {
                 var userInfo = JsonConvert.DeserializeObject<UserBasicInfo>(userDetailStr);
                 App.UserDetails = userInfo;
-                var items = AppShell.Current.Items;
-                await AppShell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+
+                App.Current.Dispatcher.Dispatch(async () =>
+                {
+                    await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+                });
             }
         }
     }

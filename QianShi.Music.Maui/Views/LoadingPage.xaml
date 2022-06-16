@@ -3,12 +3,14 @@
     x:Class="QianShi.Music.Maui.Views.LoadingPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="LoadingPage">
+    xmlns:viewmodels="clr-namespace:QianShi.Music.Maui.ViewModels"
+    x:DataType="{x:Type viewmodels:LoadingPageViewModel}">
     <StackLayout>
         <ActivityIndicator
             HeightRequest="40"
             HorizontalOptions="Center"
             IsRunning="True"
+            VerticalOptions="CenterAndExpand"
             WidthRequest="40" />
     </StackLayout>
 </ContentPage>
