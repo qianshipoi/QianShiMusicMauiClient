@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 using Topshelf.Runtime.Windows;
 
+using Windows.Graphics;
+
 namespace QianShi.Music.Maui.Platforms.Windows.Extensions
 {
     public static class ServiceExtensions
@@ -19,24 +21,31 @@ namespace QianShi.Music.Maui.Platforms.Windows.Extensions
         {
             builder.AddWindows(windows =>
             {
-                windows.OnWindowCreated(w =>
+                windows.AddWindows(wndLifeCycleBuilder =>
                 {
-                    if (w is MauiWinUIWindow windows)
+                    wndLifeCycleBuilder.OnWindowCreated(window =>
                     {
-                        var windowId = Win32Interop.GetWindowIdFromWindow(windows.WindowHandle);
-                        var appWindow = AppWindow.GetFromWindowId(windowId);
-                        windows.ExtendsContentIntoTitleBar = false;
+                        IntPtr nativeWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(window);
+                        var win32WindowsId = Win32Interop.GetWindowIdFromWindow(nativeWindowHandle);
+                        var winuiAppWindow = AppWindow.GetFromWindowId(win32WindowsId);
 
-                        var titleBar = appWindow.TitleBar;
-                        titleBar.ExtendsContentIntoTitleBar = true;
+                        //int width = 1680;
+                        //int height = 1000; //1050;
+                        //winuiAppWindow.MoveAndResize(new RectInt32(0, 0, width, height));
 
-                        titleBar.ForegroundColor = Microsoft.UI.Colors.Black;
-                        titleBar.BackgroundColor = Microsoft.UI.Colors.Transparent;
-                        titleBar.ButtonForegroundColor = Microsoft.UI.Colors.Gray;
-                        titleBar.ButtonBackgroundColor = Microsoft.UI.Colors.Transparent;
-                        titleBar.ButtonHoverForegroundColor = Microsoft.UI.Colors.Gainsboro;
-                        titleBar.ButtonHoverBackgroundColor = Microsoft.UI.Colors.DarkSeaGreen;
-                    }
+                        bool fullScreen = true;
+                        if (winuiAppWindow is not null)
+                        {
+                            if (fullScreen)
+                            {
+                                winuiAppWindow.SetPresenter(AppWindowPresenterKind.FullScreen);
+                            }
+                            else
+                            {
+                                winuiAppWindow.SetPresenter(AppWindowPresenterKind.Default);
+                            }
+                        }
+                    });
                 });
             });
 

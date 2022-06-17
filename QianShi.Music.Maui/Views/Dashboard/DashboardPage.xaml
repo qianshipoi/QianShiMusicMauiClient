@@ -1,11 +1,146 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QianShi.Music.Maui.Views.Dashboard.DashboardPage"
-             Title="DashboardPage">
-    <StackLayout>
-        <Label Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+<ContentPage
+    x:Class="QianShi.Music.Maui.Views.Dashboard.DashboardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:QianShi.Music.Maui.Models"
+    xmlns:viewmodelsd="clr-namespace:QianShi.Music.Maui.ViewModels.Dashboard"
+    Title="DashboardPage"
+    x:DataType="{x:Type viewmodelsd:DashboardPageViewModel}">
+    <AbsoluteLayout>
+        <ScrollView>
+            <StackLayout
+                Margin="0,0,0,160"
+                Padding="40,0"
+                AbsoluteLayout.LayoutBounds="0,0"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Frame
+                        Padding="0"
+                        BorderColor="Transparent"
+                        CornerRadius="10"
+                        WidthRequest="80">
+                        <Image Source="https://oss.kuriyama.top/static/akua.png" />
+                    </Frame>
+                    <FlexLayout
+                        Margin="20,0"
+                        Direction="Column"
+                        JustifyContent="SpaceEvenly">
+                        <Label FontSize="22" Text="冠式一战" />
+                        <Label Opacity=".86" Text="akua" />
+                    </FlexLayout>
+                </StackLayout>
+                <Frame
+                    Padding="0"
+                    BorderColor="Transparent"
+                    IsClippedToBounds="True">
+                    <Grid x:Name="imageControl">
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="{Binding Source={x:Reference imageControl}, Path=Width}"
+                            Source="https://oss.kuriyama.top/static/nakiri.png" />
+                        <FlexLayout
+                            AlignItems="Start"
+                            Direction="Column"
+                            JustifyContent="SpaceBetween">
+                            <FlexLayout JustifyContent="SpaceBetween">
+                                <Rectangle
+                                    BackgroundColor="SkyBlue"
+                                    HeightRequest="40"
+                                    WidthRequest="40" />
+                                <Rectangle
+                                    BackgroundColor="SkyBlue"
+                                    HeightRequest="40"
+                                    WidthRequest="100" />
+                            </FlexLayout>
+                            <Rectangle
+                                BackgroundColor="SkyBlue"
+                                HeightRequest="100"
+                                WidthRequest="200" />
+                        </FlexLayout>
+                    </Grid>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+
+        <Grid
+            Padding="0,10,0,0"
+            AbsoluteLayout.LayoutBounds="0,1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            ColumnSpacing="40"
+            HeightRequest="140">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <BoxView
+                Grid.ColumnSpan="2"
+                CornerRadius="40,40,0,0"
+                VerticalOptions="FillAndExpand"
+                Color="White">
+                <BoxView.Shadow>
+                    <Shadow
+                        Brush="Black"
+                        Opacity="0.2"
+                        Offset="0,0" />
+                </BoxView.Shadow>
+            </BoxView>
+
+            <StackLayout Padding="20,20,20,10">
+                <Image
+                    Aspect="AspectFill"
+                    HeightRequest="60"
+                    Source="https://oss.kuriyama.top/static/akua.png"
+                    WidthRequest="60">
+                    <Image.Clip>
+                        <RoundRectangleGeometry CornerRadius="10" Rect="0,0,60,60" />
+                    </Image.Clip>
+                    <Image.Shadow>
+                        <Shadow
+                            Brush="Black"
+                            Opacity="0.01"
+                            Radius="20"
+                            Offset="0,0" />
+                    </Image.Shadow>
+                </Image>
+                <Label
+                    Margin="0,6,0,0"
+                    HorizontalOptions="Center"
+                    Opacity=".86"
+                    Text="Balabala..." />
+            </StackLayout>
+
+            <Grid
+                Grid.Column="1"
+                Padding="20,20,30,20"
+                RowDefinitions="*,40">
+                <FlexLayout AlignItems="Center" JustifyContent="SpaceAround">
+                    <BoxView
+                        CornerRadius="20"
+                        HeightRequest="32"
+                        WidthRequest="32"
+                        Color="#23C83D" />
+                    <BoxView
+                        CornerRadius="30"
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        Color="#23C83D" />
+                    <BoxView
+                        CornerRadius="20"
+                        HeightRequest="32"
+                        WidthRequest="32"
+                        Color="#23C83D" />
+                </FlexLayout>
+                <Grid Grid.Row="1" RowDefinitions="*,16">
+                    <Slider BackgroundColor="#23C83D" ThumbColor="#23C83D" />
+                    <FlexLayout Grid.Row="1" JustifyContent="SpaceBetween">
+                        <Label Text="0:00" />
+                        <Label Text="99:99" />
+                    </FlexLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+    </AbsoluteLayout>
 </ContentPage>
